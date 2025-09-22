@@ -38,3 +38,33 @@ class BrowserHistory:
         self.current_page = new_node
         
         print(f"Visited new page: {url}")
+    
+    def back(self, steps):
+        """
+        Moves the current page pointer backward by steps.
+        Stops at the homepage if steps is too large.
+        Returns the URL of the page you land on.
+        """
+        # Keep moving back as long as:
+        # we have steps to move
+        # current page has a 'prev' node (we're not at the head)
+        while steps > 0 and self.current_page.prev is not None:
+            self.current_page = self.current_page.prev
+            steps -= 1
+            
+        return self.current_page.url
+
+    def forward(self, steps):
+        """
+        Moves the current page pointer forward by steps.
+        Stops at the last page if steps is too large.
+        Returns the URL of the page you land on.
+        """
+        # Keep moving forward as long as:
+        #  we have steps to move
+        #  current page has a next node
+        while steps > 0 and self.current_page.next is not None:
+            self.current_page = self.current_page.next
+            steps -= 1
+            
+        return self.current_page.url
