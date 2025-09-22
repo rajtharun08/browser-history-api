@@ -79,3 +79,14 @@ You can interact with the running API using tools like Postman or `curl`.
 | `POST` | `/visit` | `{"url": "..."}` | (none) | Visits a new page. This clears all forward history. |
 | `GET` | `/back` | (none) | `?steps=1` | Moves backward in history by the number of steps. |
 | `GET` | `/forward` | (none) | `?steps=1` | Moves forward in history by the number of steps. |
+
+## Screenshots
+
+### Postman API Test
+![Testing the /visit endpoint with Postman](assets/postman-test.png)
+
+### Pytest Unit Test Results
+![All 7 unit tests passing](assets/pytest.png)
+
+### API Running
+![terminal after running python api.py](assets/apirunning.png)
