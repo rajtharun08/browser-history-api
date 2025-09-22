@@ -19,6 +19,8 @@ class BrowserHistory:
         #  first node is the homepage
         self.current_page = Node(homepage)
         print(f"History initialized with homepage: {homepage}")
+        
+        self.head = self.current_page
 
     def visit(self, url):
         """
