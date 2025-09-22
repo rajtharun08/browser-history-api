@@ -74,8 +74,7 @@ def load_history():
 # Set up 
 app = Flask(__name__)
 
-# single instance of our browser history
-history = BrowserHistory("homepage.com")
+history = load_history()
 print("API is up, history is initialized.")
 
 # 3. Define our API routes (endpoints)
@@ -94,7 +93,8 @@ def visit_page():
 
     url_to_visit = data["url"]
     history.visit(url_to_visit)
-
+    
+    save_history(history)
     return jsonify({
         "message": "Page visited successfully",
         "current_page": url_to_visit
